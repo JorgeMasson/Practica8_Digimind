@@ -11,8 +11,8 @@ class AdaptadorTareas: BaseAdapter {
     lateinit var context: Context
     var tasks: ArrayList<Recordatorio> = ArrayList<Recordatorio>()
 
-    constructor(context: Context, task: ArrayList<Recordatorio>) {
-        this.context = context
+    constructor(contexto: Context, task: ArrayList<Recordatorio>) {
+        this.context = contexto
         this.tasks = tasks
     }
 
@@ -30,17 +30,16 @@ class AdaptadorTareas: BaseAdapter {
 
     override fun getView(p0: Int, p1: View?, p2: ViewGroup?): View {
         var inflador = LayoutInflater.from(context)
-        var vista = inflador.inflate(R.layout.task_view, null)
-
+        var vista = inflador.inflate(R.layout.recordatorio, null)
         var task = tasks[p0]
 
-        var nombre: TextView = vista.findViewById(R.id.tv_title) as TextView
-        var dias: TextView = vista.findViewById(R.id.tv_days) as TextView
-        var tiempo: TextView = vista.findViewById(R.id.tv_time) as TextView
+        val title: TextView = vista.findViewById(R.id.txt_nombre_recordatorio)
+        val days: TextView = vista.findViewById(R.id.txt_dias_recordatorio)
+        val time: TextView = vista.findViewById(R.id.txt_tiempo_recordatorio)
 
-        nombre.setText(task.nombre)
-        dias.setText(task.dias)
-        tiempo.setText(task.tiempo)
+        title.text = task.nombre
+        days.text = task.dias
+        time.text = task.tiempo
 
         return vista
     }

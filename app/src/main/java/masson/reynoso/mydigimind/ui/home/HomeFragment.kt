@@ -7,7 +7,6 @@ import android.view.ViewGroup
 import android.widget.GridView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import masson.reynoso.mydigimind.AdaptadorTareas
 import masson.reynoso.mydigimind.R
@@ -16,9 +15,13 @@ import masson.reynoso.mydigimind.databinding.FragmentHomeBinding
 import java.util.zip.Inflater
 
 class HomeFragment : Fragment() {
-    var tasks= ArrayList<Recordatorio>()
-    private lateinit var homeViewModel: HomeViewModel
     private var _binding: FragmentHomeBinding? = null
+
+    companion object {
+        var tasks= ArrayList<Recordatorio>()
+        var first = true
+    }
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -26,13 +29,16 @@ class HomeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
+        val homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val gridView: GridView = binding.gridView
+        var gridView: GridView = binding.gridview
 
-        fill_tasks()
+        if(first) {
+            fill_tasks()
+            first = false
+        }
 
         val adaptador = AdaptadorTareas(root.context, tasks)
 

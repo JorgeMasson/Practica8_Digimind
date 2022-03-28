@@ -7,12 +7,13 @@
     <string name="dashboard_want_to_it">When do you want to it?</string>
     <string name="dasboard_what_time">At what time?</string>
     <string name="dashboard_take_my_pill">Take my pill</string>
-    <string name="monday">Monday</string>
-    <string name="tuesday">Tuesday</string>
-    <string name="wednesday">Wednesday</string>
-    <string name="thursday">Thursday</string>
-    <string name="friday">Friday</string>
-    <string name="saturday">Saturday</string>
-    <string name="sunday">Sunday</string>
-    <string name="btn_set_time">Set time</string>
+    <string name="monday">Lunes</string>
+    <string name="tuesday">Martes</string>
+    <string name="wednesday">Miércoles</string>
+    <string name="thursday">Jueves</string>
+    <string name="friday">Viernes</string>
+    <string name="saturday">Sábado</string>
+    <string name="sunday">Domingo</string>
+    <string name="btn_set_time">Hora</string>
+    <string name="btn_save">Agregar</string>
 </resources>
