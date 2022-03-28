@@ -1,5 +1,6 @@
 package masson.reynoso.mydigimind.ui.home
 
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,6 +9,8 @@ import android.widget.GridView
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
+import com.google.gson.reflect.TypeToken
 import masson.reynoso.mydigimind.AdaptadorTareas
 import masson.reynoso.mydigimind.R
 import masson.reynoso.mydigimind.Recordatorio
@@ -20,6 +23,7 @@ class HomeFragment : Fragment() {
     companion object {
         var tasks= ArrayList<Recordatorio>()
         var first = true
+        lateinit var adaptador: AdaptadorTareas
     }
 
     private val binding get() = _binding!!
@@ -35,12 +39,14 @@ class HomeFragment : Fragment() {
 
         var gridView: GridView = binding.gridview
 
-        if(first) {
+        /*if(first) {
             fill_tasks()
             first = false
-        }
+        }*/
 
-        val adaptador = AdaptadorTareas(root.context, tasks)
+        cargar_tareas()
+
+        adaptador = AdaptadorTareas(root.context, tasks)
 
         gridView.adapter = adaptador
 
@@ -53,6 +59,20 @@ class HomeFragment : Fragment() {
         tasks.add(Recordatorio("Tarea 3", "Lunes", "15:00"))
         tasks.add(Recordatorio("Tarea 4", "Lunes", "15:00"))
         tasks.add(Recordatorio("Tarea 5", "Lunes", "15:00"))
+    }
+
+    fun cargar_tareas() {
+        val preferencias = context?.getSharedPreferences("preferencias", Context.MODE_PRIVATE)
+        val gson: Gson = Gson()
+
+        var json = preferencias?.getString("tareas", null)
+        val type = object : TypeToken<ArrayList<Recordatorio?>?>() {}.type
+
+        if(json == null) {
+            tasks = ArrayList<Recordatorio>()
+        } else {
+            tasks = gson.fromJson(json, type)
+        }
     }
 
     override fun onDestroyView() {

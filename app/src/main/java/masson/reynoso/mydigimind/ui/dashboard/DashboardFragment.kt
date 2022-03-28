@@ -1,6 +1,7 @@
 package masson.reynoso.mydigimind.ui.dashboard
 
 import android.app.TimePickerDialog
+import android.content.Context
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +11,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import com.google.gson.Gson
 import masson.reynoso.mydigimind.R
 import masson.reynoso.mydigimind.Recordatorio
 import masson.reynoso.mydigimind.databinding.FragmentDashboardBinding
@@ -46,7 +48,7 @@ class DashboardFragment : Fragment() {
 
     fun guardar() {
         var titulo: String = binding.etTask.text.toString()
-        var tiempo: String = binding.btnSave.text.toString()
+        var tiempo: String = binding.btnTime.text.toString()
         var dia: String = ""
 
         if(binding.mondayCheck.isChecked) dia = getString(R.string.monday)
@@ -62,6 +64,19 @@ class DashboardFragment : Fragment() {
         HomeFragment.tasks.add(tarea)
 
         Toast.makeText(context, "Se agregó la tarea", Toast.LENGTH_SHORT).show()
+
+        guardar_json()
+    }
+
+    fun  guardar_json() {
+        val preferencias = context?.getSharedPreferences("preferencias", Context.MODE_PRIVATE)
+        val editor = preferencias?.edit()
+        val gson: Gson = Gson()
+
+        var json = gson.toJson(HomeFragment.tasks)
+
+        editor?.putString("tareas", json)
+        editor?.apply()
     }
 
     fun set_time() {

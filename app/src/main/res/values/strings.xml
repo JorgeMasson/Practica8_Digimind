@@ -16,4 +16,9 @@
     <string name="sunday">Domingo</string>
     <string name="btn_set_time">Hora</string>
     <string name="btn_save">Agregar</string>
+    <string name="btn_ok">Eliminar</string>
+    <string name="msg_deleted">Eliminado</string>
+    <string name="cancel_button">Cancelar</string>
+    <string name="msg">MSG</string>
+    <string name="title">Title</string>
 </resources>

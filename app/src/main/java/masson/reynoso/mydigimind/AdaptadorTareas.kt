@@ -1,11 +1,15 @@
 package masson.reynoso.mydigimind
 
+import android.app.AlertDialog
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.BaseAdapter
 import android.widget.TextView
+import android.widget.Toast
+import com.google.gson.Gson
+import masson.reynoso.mydigimind.ui.home.HomeFragment
 
 class AdaptadorTareas: BaseAdapter {
     lateinit var context: Context
@@ -41,6 +45,42 @@ class AdaptadorTareas: BaseAdapter {
         days.text = task.dias
         time.text = task.tiempo
 
+        vista.setOnClickListener {
+            eliminar(task)
+        }
+
         return vista
+    }
+
+    fun eliminar(task: Recordatorio) {
+        val alertDialog = context?.let {
+            val builder = AlertDialog.Builder(it)
+            builder.apply {
+                setPositiveButton(R.string.btn_ok,
+                    {dialog, id ->
+                        //User clicked OK button
+                        HomeFragment.tasks.remove(task)
+                        guardar_json()
+                        HomeFragment.adaptador.notifyDataSetChanged()
+                        Toast.makeText(context, R.string.msg_deleted, Toast.LENGTH_SHORT).show()
+                    })
+                setNegativeButton(R.string.cancel_button,
+                    {dialog, it ->
+                        //User cancelled the dialog
+                    })
+            }
+            builder?.setMessage(R.string.msg).setTitle(R.string.title)
+        }
+    }
+
+    fun  guardar_json() {
+        val preferencias = context?.getSharedPreferences("preferencias", Context.MODE_PRIVATE)
+        val editor = preferencias?.edit()
+        val gson: Gson = Gson()
+
+        var json = gson.toJson(HomeFragment.tasks)
+
+        editor?.putString("tareas", json)
+        editor?.apply()
     }
 }
