@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/colorPrimary">
+
+    <TextView
+        android:id="@+id/txt_nombre_recordatorio"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/monday"
+        android:textSize="20sp"
+        android:gravity="center_horizontal"
+        />
+
+    <TextView
+        android:id="@+id/txt_dias_recordatorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorAccent"
+        android:text="@string/friday"
+        android:gravity="center"
+        android:textSize="15sp"
+        />
+
+    <TextView
+        android:id="@+id/txt_tiempo_recordatorio"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/colorPrimaryDark"
+        android:text="@string/friday"
+        android:gravity="center"
+        android:textSize="20sp"
+        />
+
+</LinearLayout>
