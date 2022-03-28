@@ -14,4 +14,5 @@
     <string name="friday">Friday</string>
     <string name="saturday">Saturday</string>
     <string name="sunday">Sunday</string>
+    <string name="btn_set_time">Set time</string>
 </resources>
