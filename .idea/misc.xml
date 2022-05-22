@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/j_mas/AndroidStudioProjects/MyDigimind/app/src/main/res/drawable/fondo.xml" value="0.167" />
+        <entry key="..\:/Users/j_mas/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/activity_contrasena.xml" value="0.22826086956521738" />
+        <entry key="..\:/Users/j_mas/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/activity_login.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/j_mas/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/activity_main.xml" value="0.22826086956521738" />
         <entry key="..\:/Users/j_mas/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/fragment_dashboard.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/j_mas/AndroidStudioProjects/MyDigimind/app/src/main/res/layout/fragment_home.xml" value="0.25416666666666665" />
