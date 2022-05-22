@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "393522676492",
+    "project_id": "mydigimind-c43ff",
+    "storage_bucket": "mydigimind-c43ff.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:393522676492:android:1f5ae4664b1359e8faff29",
+        "android_client_info": {
+          "package_name": "masson.reynoso.mydigimind"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "393522676492-3sv1d5orn8sqp6v7nplcdi70fl7ecl8h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC6UaicWHHE7lMzb3XUCzHx7N4VaV4uuEg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "393522676492-3sv1d5orn8sqp6v7nplcdi70fl7ecl8h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
