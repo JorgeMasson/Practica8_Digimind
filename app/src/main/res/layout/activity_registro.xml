@@ -47,6 +47,7 @@
         android:layout_marginLeft="100dp"
         android:layout_width="150dp"
         android:layout_height="wrap_content"
+        android:backgroundTint="@color/colorAccent"
         android:text="Registrarse"
         android:id="@+id/btn_registrarse"
         android:textColor="@color/white"
