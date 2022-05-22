@@ -2,6 +2,7 @@ package masson.reynoso.mydigimind.ui.home
 
 import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -45,6 +46,7 @@ class HomeFragment : Fragment() {
         }*/
 
         cargar_tareas()
+        Log.d("Lista", tasks.toString())
 
         adaptador = AdaptadorTareas(root.context, tasks)
 
